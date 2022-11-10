@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 10f;
+    [SerializeField] float speed = 8f;
+    [SerializeField] float jumpingPower = 10f;
     private bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
     // Simple groundcheck
+    // Checks if there is a circle 0.2f under the player and if it hits the "groundLayer"
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
