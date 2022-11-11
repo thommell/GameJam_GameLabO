@@ -9,6 +9,10 @@ public class Movement : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     private AnimationScript anim;
+    private BoxCollider2D hitBox;
+    private SpriteRenderer sprite;
+    public Sprite standing;
+    public Sprite crouching;
 
     [Space]
     [Header("Stats")]
@@ -46,6 +50,10 @@ public class Movement : MonoBehaviour
         coll = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<AnimationScript>();
+        hitBox = GetComponent<BoxCollider2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        hitBox.size = new Vector2(0.1409451f, 0.2229f);
+        hitBox.offset = new Vector2(0.003731772f, 0.002663f);
     }
 
     // Update is called once per frame
@@ -152,6 +160,27 @@ public class Movement : MonoBehaviour
             anim.Flip(side);
         }
 
+        // Crouch
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            sprite.sprite = crouching;
+            hitBox.size = new Vector2(0.1409451f, 0.1809f);
+            hitBox.offset = new Vector2(0.00373177f, 0.009667f);
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.S) )
+        {
+            sprite.sprite = standing;
+            hitBox.size = new Vector2(0.1409451f, 0.1809f);
+            hitBox.offset = new Vector2(0.003731772f, 0.002663f);
+
+            //0.002663497
+            //0.2229827
+
+            //0.009667866
+            //0.1809563
+        }
 
     }
 

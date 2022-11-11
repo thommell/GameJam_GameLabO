@@ -12,6 +12,7 @@ public class DragableObject : MonoBehaviour
     public Collision col;
 
     private bool isHolding;
+    private bool isPressed;
 
     void Start()
     {
@@ -19,28 +20,24 @@ public class DragableObject : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    void DragObject(Collision col)
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Clicked");
-            if (col.onRightDrag)
-                transform.position = (Vector2)player.transform.position + offset;
-            if (col.onLeftDrag)
-                transform.position = (Vector2)player.transform.position - offset;
-        }
-    }
+   
 
     void Update()
     {
-        //DragObject(col);
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L)) isPressed = !isPressed;
+
+        if (isPressed)
         {
-            isHolding = true;
+            if (player.transform.position.x < transform.position.x)
+            {
+                transform.position = (Vector2)player.transform.position + offset;
+            }
+            else
+            {
+                transform.position = (Vector2)player.transform.position - offset;
+            }
+
         }
         
-        if (Input.GetKeyDown(KeyCode.L)) transform.position = (Vector2)player.transform.position + offset;
-        if (Input.GetKeyUp(KeyCode.L)) transform.position = player.transform.position;
-
     }
 }
