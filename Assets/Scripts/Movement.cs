@@ -59,12 +59,12 @@ public class Movement : MonoBehaviour
         Vector2 dir = new Vector2(x, y);
 
         Walk(dir);
-       // anim.SetHorizontalMovement(x, y, rb.velocity.y);
+        anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
         if (coll.onWall && Input.GetButton("Fire3") && canMove)
         {
             if (side != coll.wallSide)
-         //       anim.Flip(side * -1);
+            anim.Flip(side * -1);
             wallGrab = true;
             wallSlide = false;
         }
@@ -140,16 +140,16 @@ public class Movement : MonoBehaviour
         if (wallGrab || wallSlide || !canMove)
             return;
 
-        //if (x > 0)
-        //{
-        //    side = 1;
-        //    anim.Flip(side);
-        //}
-        //if (x < 0)
-        //{
-        //    side = -1;
-        //    anim.Flip(side);
-        //}
+        if (x > 0)
+        {
+            side = 1;
+            anim.Flip(side);
+        }
+        if (x < 0)
+        {
+            side = -1;
+            anim.Flip(side);
+        }
 
 
     }
@@ -159,16 +159,13 @@ public class Movement : MonoBehaviour
         hasDashed = false;
         isDashing = false;
 
-       // side = anim.sr.flipX ? -1 : 1;
+        side = anim.sr.flipX ? -1 : 1;
 
         jumpParticle.Play();
     }
 
     private void Dash(float x, float y)
     {
-
-        FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-
         hasDashed = true;
 
         anim.SetTrigger("dash");
