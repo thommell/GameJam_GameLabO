@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 10f;
+    [SerializeField] float speed = 8f;
+    [SerializeField] float jumpingPower = 10f;
     private bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
@@ -18,26 +18,25 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         Debug.Log(horizontal);
+        // Jump and GroundCheck
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.y, jumpingPower);
         }
-
-        if (Input.GetButtonUp("Jump") && rb.velocity.y < 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
         Flip();
     }
-
+    // Assigns the speed to velocity
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
+    // Simple groundcheck
+    // Checks if there is a circle 0.2f under the player and if it hits the "groundLayer"
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
+    // Flips the player (sprite) when u change direction
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
