@@ -100,6 +100,7 @@ public class Movement : MonoBehaviour
         {
             if (x != 0 && !wallGrab)
             {
+                //if 
                 wallSlide = true;
                 WallSlide();
             }
@@ -230,9 +231,11 @@ public class Movement : MonoBehaviour
 
         if (!canMove)
             return;
+        
+        // TODO: make the player unable to clip against the wall, if it is one tile.
 
         bool pushingWall = false;
-        if ((rb.velocity.x > 0 && coll.onRightWall) || (rb.velocity.x < 0 && coll.onLeftWall))
+        if ((rb.velocity.x > 0 && coll.onRightWall /*&& coll.topRightWall*/) || (rb.velocity.x < 0 && coll.onLeftWall /*&& coll.topLeftWall*/))
         {
             pushingWall = true;
         }
