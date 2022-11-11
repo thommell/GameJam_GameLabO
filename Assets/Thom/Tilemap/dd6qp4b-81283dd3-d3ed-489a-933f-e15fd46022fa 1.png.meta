@@ -1438,15 +1438,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_4: 327954860
+      dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_62: -1033807526
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_23: -997381891
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_49: -1864558777
-      dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_62: -1033807526
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_21: -2001343367
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_51: 2055176812
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_8: 1160645937
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_18: -208507876
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_22: 1827603287
+      dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_4: 327954860
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_9: -527835591
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_46: -928440133
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_20: -770049438
@@ -1499,8 +1499,8 @@ TextureImporter:
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_38: -514266747
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_10: -100611208
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_35: 353302267
-      dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_26: -705058637
       dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_11: -1340817429
+      dd6qp4b-81283dd3-d3ed-489a-933f-e15fd46022fa_26: -705058637
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
